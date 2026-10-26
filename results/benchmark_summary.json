@@ -1,0 +1,959 @@
+{
+  "Scaled Manhattan": {
+    "mean_eer": 14.33627450980392,
+    "std_eer": 10.205732138051829,
+    "median_eer": 11.799999999999999,
+    "min_eer": 0.45000000000000007,
+    "max_eer": 44.2,
+    "mean_auc": 0.9118407843137255,
+    "std_auc": 0.0881108891323801,
+    "mean_far": 14.329411764705883,
+    "mean_frr": 14.343137254901961,
+    "subject_results": [
+      {
+        "subject": "s002",
+        "eer": 28.9,
+        "auc": 0.7874,
+        "eer_threshold": 1.0367
+      },
+      {
+        "subject": "s003",
+        "eer": 29.55,
+        "auc": 0.7913,
+        "eer_threshold": 1.0628
+      },
+      {
+        "subject": "s004",
+        "eer": 14.9,
+        "auc": 0.9326,
+        "eer_threshold": 0.8901
+      },
+      {
+        "subject": "s005",
+        "eer": 6.0,
+        "auc": 0.9844,
+        "eer_threshold": 0.961
+      },
+      {
+        "subject": "s007",
+        "eer": 30.65,
+        "auc": 0.7525,
+        "eer_threshold": 1.0307
+      },
+      {
+        "subject": "s008",
+        "eer": 17.1,
+        "auc": 0.9013,
+        "eer_threshold": 0.8443
+      },
+      {
+        "subject": "s010",
+        "eer": 4.0,
+        "auc": 0.9936,
+        "eer_threshold": 0.9605
+      },
+      {
+        "subject": "s011",
+        "eer": 23.15,
+        "auc": 0.8442,
+        "eer_threshold": 0.9321
+      },
+      {
+        "subject": "s012",
+        "eer": 5.1,
+        "auc": 0.9866,
+        "eer_threshold": 0.8638
+      },
+      {
+        "subject": "s013",
+        "eer": 16.7,
+        "auc": 0.9142,
+        "eer_threshold": 1.0037
+      },
+      {
+        "subject": "s015",
+        "eer": 27.1,
+        "auc": 0.8025,
+        "eer_threshold": 0.83
+      },
+      {
+        "subject": "s016",
+        "eer": 8.2,
+        "auc": 0.9668,
+        "eer_threshold": 1.1361
+      },
+      {
+        "subject": "s017",
+        "eer": 4.45,
+        "auc": 0.9924,
+        "eer_threshold": 1.2406
+      },
+      {
+        "subject": "s018",
+        "eer": 20.85,
+        "auc": 0.8694,
+        "eer_threshold": 0.7615
+      },
+      {
+        "subject": "s019",
+        "eer": 5.1,
+        "auc": 0.9852,
+        "eer_threshold": 1.0077
+      },
+      {
+        "subject": "s020",
+        "eer": 22.9,
+        "auc": 0.8588,
+        "eer_threshold": 0.7501
+      },
+      {
+        "subject": "s021",
+        "eer": 17.35,
+        "auc": 0.9056,
+        "eer_threshold": 0.8747
+      },
+      {
+        "subject": "s022",
+        "eer": 2.45,
+        "auc": 0.9954,
+        "eer_threshold": 1.1631
+      },
+      {
+        "subject": "s024",
+        "eer": 2.0,
+        "auc": 0.9972,
+        "eer_threshold": 0.9976
+      },
+      {
+        "subject": "s025",
+        "eer": 6.45,
+        "auc": 0.9724,
+        "eer_threshold": 1.062
+      },
+      {
+        "subject": "s026",
+        "eer": 9.35,
+        "auc": 0.9661,
+        "eer_threshold": 0.934
+      },
+      {
+        "subject": "s027",
+        "eer": 7.55,
+        "auc": 0.9702,
+        "eer_threshold": 1.0754
+      },
+      {
+        "subject": "s028",
+        "eer": 4.9,
+        "auc": 0.9848,
+        "eer_threshold": 1.315
+      },
+      {
+        "subject": "s029",
+        "eer": 13.55,
+        "auc": 0.9371,
+        "eer_threshold": 0.9966
+      },
+      {
+        "subject": "s030",
+        "eer": 8.0,
+        "auc": 0.9654,
+        "eer_threshold": 0.846
+      },
+      {
+        "subject": "s031",
+        "eer": 30.4,
+        "auc": 0.782,
+        "eer_threshold": 0.8122
+      },
+      {
+        "subject": "s032",
+        "eer": 44.2,
+        "auc": 0.5764,
+        "eer_threshold": 0.8771
+      },
+      {
+        "subject": "s033",
+        "eer": 8.9,
+        "auc": 0.963,
+        "eer_threshold": 0.9168
+      },
+      {
+        "subject": "s034",
+        "eer": 30.65,
+        "auc": 0.7534,
+        "eer_threshold": 0.8207
+      },
+      {
+        "subject": "s035",
+        "eer": 22.9,
+        "auc": 0.8536,
+        "eer_threshold": 0.9514
+      },
+      {
+        "subject": "s036",
+        "eer": 0.45,
+        "auc": 0.9999,
+        "eer_threshold": 1.1643
+      },
+      {
+        "subject": "s037",
+        "eer": 21.55,
+        "auc": 0.8639,
+        "eer_threshold": 0.8941
+      },
+      {
+        "subject": "s038",
+        "eer": 6.2,
+        "auc": 0.9685,
+        "eer_threshold": 0.7177
+      },
+      {
+        "subject": "s039",
+        "eer": 8.45,
+        "auc": 0.9445,
+        "eer_threshold": 0.9782
+      },
+      {
+        "subject": "s040",
+        "eer": 11.8,
+        "auc": 0.9346,
+        "eer_threshold": 0.8792
+      },
+      {
+        "subject": "s041",
+        "eer": 12.0,
+        "auc": 0.9441,
+        "eer_threshold": 0.8641
+      },
+      {
+        "subject": "s042",
+        "eer": 4.9,
+        "auc": 0.9863,
+        "eer_threshold": 0.9281
+      },
+      {
+        "subject": "s043",
+        "eer": 1.55,
+        "auc": 0.9955,
+        "eer_threshold": 1.1032
+      },
+      {
+        "subject": "s044",
+        "eer": 6.0,
+        "auc": 0.9812,
+        "eer_threshold": 0.9067
+      },
+      {
+        "subject": "s046",
+        "eer": 18.4,
+        "auc": 0.9003,
+        "eer_threshold": 0.7716
+      },
+      {
+        "subject": "s047",
+        "eer": 26.9,
+        "auc": 0.7989,
+        "eer_threshold": 0.8696
+      },
+      {
+        "subject": "s048",
+        "eer": 10.45,
+        "auc": 0.9578,
+        "eer_threshold": 0.8108
+      },
+      {
+        "subject": "s049",
+        "eer": 4.65,
+        "auc": 0.9791,
+        "eer_threshold": 0.7979
+      },
+      {
+        "subject": "s050",
+        "eer": 15.55,
+        "auc": 0.9051,
+        "eer_threshold": 0.8781
+      },
+      {
+        "subject": "s051",
+        "eer": 29.8,
+        "auc": 0.7949,
+        "eer_threshold": 0.9397
+      },
+      {
+        "subject": "s052",
+        "eer": 2.0,
+        "auc": 0.9941,
+        "eer_threshold": 1.0976
+      },
+      {
+        "subject": "s053",
+        "eer": 8.0,
+        "auc": 0.9767,
+        "eer_threshold": 0.9063
+      },
+      {
+        "subject": "s054",
+        "eer": 14.9,
+        "auc": 0.917,
+        "eer_threshold": 0.7642
+      },
+      {
+        "subject": "s055",
+        "eer": 5.8,
+        "auc": 0.9885,
+        "eer_threshold": 1.139
+      },
+      {
+        "subject": "s056",
+        "eer": 24.45,
+        "auc": 0.8481,
+        "eer_threshold": 0.8279
+      },
+      {
+        "subject": "s057",
+        "eer": 24.05,
+        "auc": 0.839,
+        "eer_threshold": 0.8685
+      }
+    ]
+  },
+  "One-Class SVM": {
+    "mean_eer": 14.122549019607844,
+    "std_eer": 9.539146967892256,
+    "median_eer": 11.1,
+    "min_eer": 0.0,
+    "max_eer": 41.8,
+    "mean_auc": 0.9112880392156861,
+    "std_auc": 0.08214286373643175,
+    "mean_far": 14.117647058823529,
+    "mean_frr": 14.127450980392156,
+    "subject_results": [
+      {
+        "subject": "s002",
+        "eer": 29.55,
+        "auc": 0.763,
+        "eer_threshold": 0.2391
+      },
+      {
+        "subject": "s003",
+        "eer": 36.05,
+        "auc": 0.7329,
+        "eer_threshold": 0.2832
+      },
+      {
+        "subject": "s004",
+        "eer": 11.55,
+        "auc": 0.9477,
+        "eer_threshold": 0.1636
+      },
+      {
+        "subject": "s005",
+        "eer": 6.2,
+        "auc": 0.9743,
+        "eer_threshold": 0.2205
+      },
+      {
+        "subject": "s007",
+        "eer": 25.55,
+        "auc": 0.8045,
+        "eer_threshold": 0.2261
+      },
+      {
+        "subject": "s008",
+        "eer": 18.0,
+        "auc": 0.8995,
+        "eer_threshold": 0.1222
+      },
+      {
+        "subject": "s010",
+        "eer": 6.65,
+        "auc": 0.9841,
+        "eer_threshold": 0.2303
+      },
+      {
+        "subject": "s011",
+        "eer": 25.1,
+        "auc": 0.8111,
+        "eer_threshold": 0.1769
+      },
+      {
+        "subject": "s012",
+        "eer": 5.55,
+        "auc": 0.978,
+        "eer_threshold": 0.1004
+      },
+      {
+        "subject": "s013",
+        "eer": 16.45,
+        "auc": 0.9167,
+        "eer_threshold": 0.2793
+      },
+      {
+        "subject": "s015",
+        "eer": 26.0,
+        "auc": 0.8123,
+        "eer_threshold": 0.1266
+      },
+      {
+        "subject": "s016",
+        "eer": 7.55,
+        "auc": 0.9578,
+        "eer_threshold": 0.3323
+      },
+      {
+        "subject": "s017",
+        "eer": 3.55,
+        "auc": 0.9901,
+        "eer_threshold": 0.3859
+      },
+      {
+        "subject": "s018",
+        "eer": 25.1,
+        "auc": 0.8248,
+        "eer_threshold": -0.0029
+      },
+      {
+        "subject": "s019",
+        "eer": 6.45,
+        "auc": 0.9806,
+        "eer_threshold": 0.302
+      },
+      {
+        "subject": "s020",
+        "eer": 16.0,
+        "auc": 0.9006,
+        "eer_threshold": 0.0759
+      },
+      {
+        "subject": "s021",
+        "eer": 17.35,
+        "auc": 0.8985,
+        "eer_threshold": 0.1581
+      },
+      {
+        "subject": "s022",
+        "eer": 2.45,
+        "auc": 0.9916,
+        "eer_threshold": 0.3156
+      },
+      {
+        "subject": "s024",
+        "eer": 2.9,
+        "auc": 0.9967,
+        "eer_threshold": 0.2626
+      },
+      {
+        "subject": "s025",
+        "eer": 6.45,
+        "auc": 0.972,
+        "eer_threshold": 0.3391
+      },
+      {
+        "subject": "s026",
+        "eer": 8.45,
+        "auc": 0.9628,
+        "eer_threshold": 0.273
+      },
+      {
+        "subject": "s027",
+        "eer": 7.1,
+        "auc": 0.9678,
+        "eer_threshold": 0.2773
+      },
+      {
+        "subject": "s028",
+        "eer": 4.45,
+        "auc": 0.9832,
+        "eer_threshold": 0.4002
+      },
+      {
+        "subject": "s029",
+        "eer": 13.55,
+        "auc": 0.9294,
+        "eer_threshold": 0.2272
+      },
+      {
+        "subject": "s030",
+        "eer": 11.1,
+        "auc": 0.9378,
+        "eer_threshold": 0.1478
+      },
+      {
+        "subject": "s031",
+        "eer": 25.35,
+        "auc": 0.8062,
+        "eer_threshold": 0.0744
+      },
+      {
+        "subject": "s032",
+        "eer": 41.8,
+        "auc": 0.6181,
+        "eer_threshold": 0.1792
+      },
+      {
+        "subject": "s033",
+        "eer": 9.1,
+        "auc": 0.9598,
+        "eer_threshold": 0.175
+      },
+      {
+        "subject": "s034",
+        "eer": 27.8,
+        "auc": 0.7682,
+        "eer_threshold": 0.1068
+      },
+      {
+        "subject": "s035",
+        "eer": 18.0,
+        "auc": 0.9036,
+        "eer_threshold": 0.2744
+      },
+      {
+        "subject": "s036",
+        "eer": 0.0,
+        "auc": 1.0,
+        "eer_threshold": 0.386
+      },
+      {
+        "subject": "s037",
+        "eer": 22.9,
+        "auc": 0.8473,
+        "eer_threshold": 0.2234
+      },
+      {
+        "subject": "s038",
+        "eer": 8.9,
+        "auc": 0.9608,
+        "eer_threshold": 0.0511
+      },
+      {
+        "subject": "s039",
+        "eer": 8.9,
+        "auc": 0.9375,
+        "eer_threshold": 0.2955
+      },
+      {
+        "subject": "s040",
+        "eer": 10.45,
+        "auc": 0.9496,
+        "eer_threshold": 0.1509
+      },
+      {
+        "subject": "s041",
+        "eer": 13.1,
+        "auc": 0.9177,
+        "eer_threshold": 0.1375
+      },
+      {
+        "subject": "s042",
+        "eer": 6.45,
+        "auc": 0.9712,
+        "eer_threshold": 0.2793
+      },
+      {
+        "subject": "s043",
+        "eer": 1.55,
+        "auc": 0.9945,
+        "eer_threshold": 0.3134
+      },
+      {
+        "subject": "s044",
+        "eer": 6.45,
+        "auc": 0.9827,
+        "eer_threshold": 0.1999
+      },
+      {
+        "subject": "s046",
+        "eer": 15.75,
+        "auc": 0.9124,
+        "eer_threshold": 0.0379
+      },
+      {
+        "subject": "s047",
+        "eer": 22.2,
+        "auc": 0.8443,
+        "eer_threshold": 0.1555
+      },
+      {
+        "subject": "s048",
+        "eer": 10.45,
+        "auc": 0.9573,
+        "eer_threshold": 0.0785
+      },
+      {
+        "subject": "s049",
+        "eer": 8.45,
+        "auc": 0.9516,
+        "eer_threshold": 0.1583
+      },
+      {
+        "subject": "s050",
+        "eer": 14.65,
+        "auc": 0.9107,
+        "eer_threshold": 0.1498
+      },
+      {
+        "subject": "s051",
+        "eer": 28.45,
+        "auc": 0.8191,
+        "eer_threshold": 0.149
+      },
+      {
+        "subject": "s052",
+        "eer": 2.9,
+        "auc": 0.9907,
+        "eer_threshold": 0.2346
+      },
+      {
+        "subject": "s053",
+        "eer": 6.9,
+        "auc": 0.977,
+        "eer_threshold": 0.1792
+      },
+      {
+        "subject": "s054",
+        "eer": 14.0,
+        "auc": 0.9174,
+        "eer_threshold": 0.1112
+      },
+      {
+        "subject": "s055",
+        "eer": 8.9,
+        "auc": 0.9757,
+        "eer_threshold": 0.2757
+      },
+      {
+        "subject": "s056",
+        "eer": 23.1,
+        "auc": 0.8314,
+        "eer_threshold": 0.1581
+      },
+      {
+        "subject": "s057",
+        "eer": 24.65,
+        "auc": 0.8526,
+        "eer_threshold": 0.1699
+      }
+    ]
+  },
+  "Isolation Forest": {
+    "mean_eer": 15.149999999999997,
+    "std_eer": 9.967722417687925,
+    "median_eer": 14.649999999999999,
+    "min_eer": 0.45000000000000007,
+    "max_eer": 42.9,
+    "mean_auc": 0.9097250980392155,
+    "std_auc": 0.0838949483948042,
+    "mean_far": 15.152941176470586,
+    "mean_frr": 15.147058823529411,
+    "subject_results": [
+      {
+        "subject": "s002",
+        "eer": 28.65,
+        "auc": 0.7772,
+        "eer_threshold": 0.4633
+      },
+      {
+        "subject": "s003",
+        "eer": 35.3,
+        "auc": 0.7408,
+        "eer_threshold": 0.4621
+      },
+      {
+        "subject": "s004",
+        "eer": 17.35,
+        "auc": 0.9052,
+        "eer_threshold": 0.4267
+      },
+      {
+        "subject": "s005",
+        "eer": 7.1,
+        "auc": 0.9849,
+        "eer_threshold": 0.4477
+      },
+      {
+        "subject": "s007",
+        "eer": 31.55,
+        "auc": 0.7788,
+        "eer_threshold": 0.47
+      },
+      {
+        "subject": "s008",
+        "eer": 16.0,
+        "auc": 0.9086,
+        "eer_threshold": 0.4297
+      },
+      {
+        "subject": "s010",
+        "eer": 4.0,
+        "auc": 0.9958,
+        "eer_threshold": 0.4478
+      },
+      {
+        "subject": "s011",
+        "eer": 23.3,
+        "auc": 0.8516,
+        "eer_threshold": 0.4535
+      },
+      {
+        "subject": "s012",
+        "eer": 8.0,
+        "auc": 0.9773,
+        "eer_threshold": 0.4272
+      },
+      {
+        "subject": "s013",
+        "eer": 16.65,
+        "auc": 0.9269,
+        "eer_threshold": 0.462
+      },
+      {
+        "subject": "s015",
+        "eer": 28.05,
+        "auc": 0.8227,
+        "eer_threshold": 0.4309
+      },
+      {
+        "subject": "s016",
+        "eer": 14.65,
+        "auc": 0.927,
+        "eer_threshold": 0.4766
+      },
+      {
+        "subject": "s017",
+        "eer": 4.45,
+        "auc": 0.989,
+        "eer_threshold": 0.4876
+      },
+      {
+        "subject": "s018",
+        "eer": 20.2,
+        "auc": 0.8781,
+        "eer_threshold": 0.4177
+      },
+      {
+        "subject": "s019",
+        "eer": 4.0,
+        "auc": 0.9894,
+        "eer_threshold": 0.4689
+      },
+      {
+        "subject": "s020",
+        "eer": 18.2,
+        "auc": 0.8801,
+        "eer_threshold": 0.4181
+      },
+      {
+        "subject": "s021",
+        "eer": 18.0,
+        "auc": 0.8882,
+        "eer_threshold": 0.43
+      },
+      {
+        "subject": "s022",
+        "eer": 5.1,
+        "auc": 0.9897,
+        "eer_threshold": 0.482
+      },
+      {
+        "subject": "s024",
+        "eer": 2.9,
+        "auc": 0.9966,
+        "eer_threshold": 0.4494
+      },
+      {
+        "subject": "s025",
+        "eer": 10.0,
+        "auc": 0.9595,
+        "eer_threshold": 0.454
+      },
+      {
+        "subject": "s026",
+        "eer": 10.0,
+        "auc": 0.9564,
+        "eer_threshold": 0.448
+      },
+      {
+        "subject": "s027",
+        "eer": 7.1,
+        "auc": 0.9653,
+        "eer_threshold": 0.4572
+      },
+      {
+        "subject": "s028",
+        "eer": 6.0,
+        "auc": 0.9829,
+        "eer_threshold": 0.5056
+      },
+      {
+        "subject": "s029",
+        "eer": 13.55,
+        "auc": 0.9478,
+        "eer_threshold": 0.4526
+      },
+      {
+        "subject": "s030",
+        "eer": 11.1,
+        "auc": 0.9501,
+        "eer_threshold": 0.4405
+      },
+      {
+        "subject": "s031",
+        "eer": 29.35,
+        "auc": 0.786,
+        "eer_threshold": 0.4262
+      },
+      {
+        "subject": "s032",
+        "eer": 42.9,
+        "auc": 0.6135,
+        "eer_threshold": 0.442
+      },
+      {
+        "subject": "s033",
+        "eer": 12.9,
+        "auc": 0.9201,
+        "eer_threshold": 0.4469
+      },
+      {
+        "subject": "s034",
+        "eer": 29.8,
+        "auc": 0.7845,
+        "eer_threshold": 0.4392
+      },
+      {
+        "subject": "s035",
+        "eer": 25.55,
+        "auc": 0.8268,
+        "eer_threshold": 0.4611
+      },
+      {
+        "subject": "s036",
+        "eer": 0.45,
+        "auc": 0.9999,
+        "eer_threshold": 0.5065
+      },
+      {
+        "subject": "s037",
+        "eer": 19.35,
+        "auc": 0.8834,
+        "eer_threshold": 0.4349
+      },
+      {
+        "subject": "s038",
+        "eer": 7.8,
+        "auc": 0.9704,
+        "eer_threshold": 0.4122
+      },
+      {
+        "subject": "s039",
+        "eer": 6.65,
+        "auc": 0.973,
+        "eer_threshold": 0.4562
+      },
+      {
+        "subject": "s040",
+        "eer": 17.1,
+        "auc": 0.8838,
+        "eer_threshold": 0.4403
+      },
+      {
+        "subject": "s041",
+        "eer": 14.65,
+        "auc": 0.928,
+        "eer_threshold": 0.4194
+      },
+      {
+        "subject": "s042",
+        "eer": 4.45,
+        "auc": 0.9935,
+        "eer_threshold": 0.4634
+      },
+      {
+        "subject": "s043",
+        "eer": 1.55,
+        "auc": 0.9994,
+        "eer_threshold": 0.4704
+      },
+      {
+        "subject": "s044",
+        "eer": 5.8,
+        "auc": 0.9744,
+        "eer_threshold": 0.4513
+      },
+      {
+        "subject": "s046",
+        "eer": 15.55,
+        "auc": 0.9356,
+        "eer_threshold": 0.4181
+      },
+      {
+        "subject": "s047",
+        "eer": 28.0,
+        "auc": 0.7928,
+        "eer_threshold": 0.4463
+      },
+      {
+        "subject": "s048",
+        "eer": 11.1,
+        "auc": 0.9578,
+        "eer_threshold": 0.4276
+      },
+      {
+        "subject": "s049",
+        "eer": 5.1,
+        "auc": 0.9757,
+        "eer_threshold": 0.4203
+      },
+      {
+        "subject": "s050",
+        "eer": 18.05,
+        "auc": 0.8931,
+        "eer_threshold": 0.4373
+      },
+      {
+        "subject": "s051",
+        "eer": 29.1,
+        "auc": 0.7958,
+        "eer_threshold": 0.4502
+      },
+      {
+        "subject": "s052",
+        "eer": 2.9,
+        "auc": 0.9943,
+        "eer_threshold": 0.4657
+      },
+      {
+        "subject": "s053",
+        "eer": 8.0,
+        "auc": 0.9793,
+        "eer_threshold": 0.4372
+      },
+      {
+        "subject": "s054",
+        "eer": 19.8,
+        "auc": 0.8795,
+        "eer_threshold": 0.4222
+      },
+      {
+        "subject": "s055",
+        "eer": 8.0,
+        "auc": 0.9777,
+        "eer_threshold": 0.4702
+      },
+      {
+        "subject": "s056",
+        "eer": 20.9,
+        "auc": 0.8754,
+        "eer_threshold": 0.4332
+      },
+      {
+        "subject": "s057",
+        "eer": 26.65,
+        "auc": 0.8323,
+        "eer_threshold": 0.4375
+      }
+    ]
+  }
+}

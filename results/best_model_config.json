@@ -1,0 +1,10 @@
+{
+  "best_model": "One-Class SVM",
+  "mean_eer_percent": 14.122549019607844,
+  "mean_auc": 0.9112880392156861,
+  "parameters": {
+    "nu": 0.05,
+    "kernel": "rbf",
+    "gamma": "scale"
+  }
+}

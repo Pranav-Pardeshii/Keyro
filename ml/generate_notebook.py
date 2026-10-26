@@ -1,0 +1,150 @@
+"""
+Generates the benchmark.ipynb Jupyter Notebook.
+"""
+import json
+import os
+
+notebook = {
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Keystroke Dynamics Offline Benchmark\n",
+    "\n",
+    "**Dataset**: CMU Keystroke Dynamics Benchmark (`DSL-StrongPasswordData.csv`)\n",
+    "**Task**: Biometric Anomaly Detection (Genuine User vs Impostors)\n",
+    "**Target Passphrase**: `.tie5Roanl`\n",
+    "**Models**: Scaled Manhattan Baseline, One-Class SVM (RBF), Isolation Forest\n",
+    "\n",
+    "Reference: Killourhy, K. S., & Maxion, R. A. (2009). *Comparing anomaly-detection algorithms for keystroke dynamics*. DSN 2009."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import os\n",
+    "import sys\n",
+    "sys.path.insert(0, os.path.abspath(\"..\"))\n",
+    "\n",
+    "import numpy as np\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "from ml.dataset import load_cmu_dataset, get_all_subjects, get_user_splits, FEATURE_COLUMNS\n",
+    "from ml.models import ScaledManhattanDetector, OneClassSVMDetector, IsolationForestDetector\n",
+    "from ml.evaluate import compute_eer, calculate_far_frr\n",
+    "from ml.benchmark import run_benchmark\n",
+    "\n",
+    "print(f\"Loaded {len(FEATURE_COLUMNS)} feature definitions.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 1. Load and Inspect CMU Benchmark Dataset\n",
+    "The dataset contains 51 subjects typing the password `.tie5Roanl` 400 times across 8 sessions (50 repetitions per session)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df = load_cmu_dataset(\"../data/DSL-StrongPasswordData.csv\")\n",
+    "print(\"Dataset Shape:\", df.shape)\n",
+    "print(\"Total Unique Subjects:\", df[\"subject\"].nunique())\n",
+    "df.head()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 2. Feature Timing Distributions\n",
+    "Compare key hold times ($H$) and flight times ($DD$ / $UD$) for genuine vs impostor samples."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "s002_train = df[df[\"subject\"] == \"s002\"].iloc[:200]\n",
+    "plt.figure(figsize=(10, 4))\n",
+    "plt.boxplot([s002_train[\"H.period\"], s002_train[\"H.t\"], s002_train[\"H.five\"], s002_train[\"H.Return\"]],\n",
+    "            tick_labels=[\"H.period\", \"H.t\", \"H.five\", \"H.Return\"])\n",
+    "plt.title(\"Key Hold Time Distributions for Subject s002 (Train Reps)\")\n",
+    "plt.ylabel(\"Duration (seconds)\")\n",
+    "plt.grid(True, alpha=0.3)\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 3. Run Benchmark Across All 51 Subjects\n",
+    "Train each anomaly detector on the first 200 repetitions of each subject, and evaluate against the remaining 200 genuine reps and 250 impostor attempts."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "summary = run_benchmark(\n",
+    "    data_path=\"../data/DSL-StrongPasswordData.csv\",\n",
+    "    train_reps=200,\n",
+    "    impostors_per_other=5,\n",
+    "    output_dir=\"../results\"\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 4. Benchmark Visualizations\n",
+    "Display ROC curves, DET curves, and model comparison bar chart."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from IPython.display import Image, display\n",
+    "display(Image(filename=\"../results/model_comparison.png\"))\n",
+    "display(Image(filename=\"../results/roc_curves.png\"))\n",
+    "display(Image(filename=\"../results/det_curves.png\"))"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "name": "python",
+   "version": "3.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
+
+out_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "benchmark.ipynb")
+with open(out_path, "w", encoding="utf-8") as f:
+    json.dump(notebook, f, indent=1)
+
+print(f"Created notebook at {out_path}")

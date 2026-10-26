@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyro &mdash; Keystroke Dynamics Biometric Authentication</title>
+  <meta name="description" content="Neuromuscular keystroke dynamics biometric authentication system. Extracts 31 temporal features from typing cadence to detect anomalies with 14.12% CMU benchmark EER.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css?v=6">
+</head>
+<body>
+
+  <!-- Minimalist Architectural Navigation Bar -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#" class="brand-unit" aria-label="Keyro Biometric Authentication Home">
+        <svg class="brand-glyph" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2" ry="2"/>
+          <line x1="6" y1="8" x2="6.01" y2="8"/>
+          <line x1="10" y1="8" x2="10.01" y2="8"/>
+          <line x1="14" y1="8" x2="14.01" y2="8"/>
+          <line x1="18" y1="8" x2="18.01" y2="8"/>
+          <line x1="6" y1="12" x2="6.01" y2="12"/>
+          <line x1="10" y1="12" x2="10.01" y2="12"/>
+          <line x1="14" y1="12" x2="14.01" y2="12"/>
+          <line x1="18" y1="12" x2="18.01" y2="12"/>
+          <line x1="7" y1="16" x2="17" y2="16"/>
+        </svg>
+        <span class="brand-name">KEYRO</span>
+        <span class="status-indicator" title="System Online"></span>
+        <span class="brand-telemetry">14.12% EER / CMU BENCHMARK</span>
+      </a>
+
+      <!-- Clean Tab Switcher (Anti-Slop: No Emojis, Clear Names) -->
+      <nav class="nav-tabs" role="tablist" aria-label="Authentication Modules">
+        <button class="tab-button active" id="tab-btn-enroll" data-tab="tab-enroll" role="tab" aria-selected="true">
+          Enrollment Studio
+        </button>
+        <button class="tab-button" id="tab-btn-verify" data-tab="tab-verify" role="tab" aria-selected="false">
+          Verification Gateway
+        </button>
+        <button class="tab-button" id="tab-btn-impersonate" data-tab="tab-impersonate" role="tab" aria-selected="false">
+          Adversarial Arena
+        </button>
+        <button class="tab-button" id="tab-btn-benchmark" data-tab="tab-benchmark" role="tab" aria-selected="false">
+          Model Intelligence
+        </button>
+      </nav>
+
+      <div class="nav-system-status">
+        <span class="status-indicator" title="System Online"></span>
+        <span class="nums status-text">Engine Online</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+
+    <!-- ===================================================================
+         HERO SECTION: "The Product Performs" Live Biometric Sensor
+         =================================================================== -->
+    <section class="hero-stage">
+      <div class="hero-content">
+        <div class="hero-text-block">
+          <h1 class="hero-headline">
+            <span class="headline-line">Your Typing Cadence</span>
+            <span class="headline-line">Is Your Identity.</span>
+          </h1>
+          <p class="hero-lead">
+            Not what you type, but how you type: Keyro extracts 31 neuromuscular latency vectors from your biological typing rhythm on <code>.tie5Roanl</code>. 14.12% CMU benchmark EER powered by One-Class Support Vector Machines.
+          </p>
+          <div class="hero-actions">
+            <button type="button" class="btn-primary" id="hero-btn-enroll">
+              Start Enrollment Studio
+            </button>
+            <button type="button" class="btn-ghost" id="hero-btn-verify">
+              Test Identity Verification
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Working Hero Interface Fragment: The Product Performs (data-ui) -->
+        <div class="hero-instrument" data-ui>
+          <div class="instrument-header">
+            <div class="instrument-meta">
+              <span class="instrument-tag">Live Sensor</span>
+              <span class="instrument-target">Target: <code>.tie5Roanl</code> + Return</span>
+            </div>
+            <button type="button" class="btn-subtle" id="btn-hero-demo-pulse">
+              Simulate Cadence Pulse
+            </button>
+          </div>
+
+          <div class="passphrase-display" id="hero-char-slots">
+            <span class="char-slot" data-key=".">.</span>
+            <span class="char-slot" data-key="t">t</span>
+            <span class="char-slot" data-key="i">i</span>
+            <span class="char-slot" data-key="e">e</span>
+            <span class="char-slot" data-key="5">5</span>
+            <span class="char-slot" data-key="R">R</span>
+            <span class="char-slot" data-key="o">o</span>
+            <span class="char-slot" data-key="a">a</span>
+            <span class="char-slot" data-key="n">n</span>
+            <span class="char-slot" data-key="l">l</span>
+            <span class="char-slot enter-key" data-key="Enter">Return</span>
+          </div>
+
+          <input type="text" class="sensor-input" id="hero-typing-input" placeholder="Type here to test cadence..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore="true" data-form-type="other" value="">
+
+          <div class="instrument-telemetry-strip">
+            <div class="telemetry-item">
+              <span class="telemetry-key">Mean Hold Duration</span>
+              <span class="telemetry-value nums" id="hero-metric-hold">0.0 ms</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="telemetry-key">Mean Flight Latency</span>
+              <span class="telemetry-value nums" id="hero-metric-flight">0.0 ms</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="telemetry-key">Hardware Clock</span>
+              <span class="telemetry-value nums" id="hero-metric-clock">performance.now()</span>
+            </div>
+          </div>
+
+          <div class="cadence-timeline" id="hero-cadence-timeline" title="Hold time per key"></div>
+          <div class="feedback-strip" id="hero-feedback">Click sensor and type .tie5Roanl to observe neuromuscular latency extraction in real-time.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         MATHEMATICAL BENTO GRID: Core Telemetry & Architecture
+         =================================================================== -->
+    <section class="bento-section">
+      <div class="bento-grid">
+        <!-- Tile 1: 31-D Temporal Space -->
+        <div class="bento-tile bento-tile-wide">
+          <div class="tile-header">
+            <span class="tile-category">Feature engineering with 31 temporal dimensions</span>
+            <h2 class="tile-title">31-Dimensional Neuromuscular Vector Space</h2>
+          </div>
+          <p class="tile-body">
+            Every keystroke event yields three physiological dimensions: 11 Key Hold Durations ($H$), 10 Down-Down Flight Latencies ($DD$), and 10 Up-Down Latencies ($UD$). These form a distinctive biological signature that cannot be replicated through password theft.
+          </p>
+          <div class="feature-vector-bar">
+            <div class="vec-chunk vec-h"><span class="nums">11</span> Hold Durations</div>
+            <div class="vec-chunk vec-dd"><span class="nums">10</span> Down-Down Latencies</div>
+            <div class="vec-chunk vec-ud"><span class="nums">10</span> Up-Down Intervals</div>
+          </div>
+        </div>
+
+        <!-- Tile 2: CMU Benchmark Rigor -->
+        <div class="bento-tile">
+          <div class="tile-header">
+            <span class="tile-category">CMU benchmark evaluation across 51 subjects</span>
+            <h2 class="tile-title">14.12% Equal Error Rate</h2>
+          </div>
+          <p class="tile-body">
+            Evaluated on all 51 CMU benchmark subjects across 20,400 samples under the standard Killourhy &amp; Maxion (2009) protocol.
+          </p>
+          <div class="tile-stat nums">
+            <span class="stat-number">0.9113</span>
+            <span class="stat-label">Area Under Curve (ROC)</span>
+          </div>
+        </div>
+
+        <!-- Tile 3: Hardware Microsecond Timing -->
+        <div class="bento-tile">
+          <div class="tile-header">
+            <span class="tile-category">High-resolution monotonic timer clock</span>
+            <h2 class="tile-title">Sub-Millisecond Clock</h2>
+          </div>
+          <p class="tile-body">
+            Client-side logging via <code>performance.now()</code> bypasses standard system clock jitter and NTP drifts to guarantee reproducible feature vectors.
+          </p>
+          <div class="tile-badge-strip">
+            <span class="tech-tag">Zero Jitter</span>
+            <span class="tech-tag">Monotonic Timer</span>
+          </div>
+        </div>
+
+        <!-- Tile 4: Dynamic Anomaly Frontier -->
+        <div class="bento-tile bento-tile-wide">
+          <div class="tile-header">
+            <span class="tile-category">Decision margin calibration for FAR and FRR</span>
+            <h2 class="tile-title">Adaptive Security vs Convenience Calibration</h2>
+          </div>
+          <p class="tile-body">
+            Dynamic decision hyperplanes allow institutions to tune from High Convenience (low false rejection for frictionless everyday logins) down to Zero-Trust Banking (low false acceptance for sensitive transactions).
+          </p>
+          <div class="tradeoff-spectrum">
+            <span class="spectrum-end">Convenience Mode (FRR &lt; 2%)</span>
+            <div class="spectrum-bar"><div class="spectrum-fill"></div></div>
+            <span class="spectrum-end">Zero-Trust Mode (FAR &lt; 1%)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         WORKSPACE MODULES (Segmented Panes)
+         =================================================================== -->
+    <div class="workspaces-wrapper">
+
+      <!-- =================================================================
+           WORKSPACE 1: ENROLLMENT STUDIO
+           ================================================================= -->
+      <section class="workspace-pane active" id="tab-enroll" role="tabpanel" aria-labelledby="tab-btn-enroll">
+        <div class="panel-box">
+          <div class="panel-headline-row">
+            <div>
+              <h2 class="panel-heading">Enrollment Studio</h2>
+              <p class="panel-description">Capture 20 repetitions of <code>.tie5Roanl</code> to establish your biological anomaly detection baseline.</p>
+            </div>
+            <div class="badge-status" id="enroll-status-badge">Ready to Enroll</div>
+          </div>
+
+          <div class="split-layout">
+            <!-- Setup Column -->
+            <div class="setup-column">
+              <div class="input-group">
+                <label class="input-label" for="enroll-username">Username or Identity Handle</label>
+                <input type="text" class="text-input" id="enroll-username" placeholder="e.g. alice, pranav, cyber_analyst" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore="true" data-form-type="other" value="">
+              </div>
+
+              <div class="input-group">
+                <label class="input-label" for="enroll-model-select">Detection Algorithm</label>
+                <select class="select-input" id="enroll-model-select">
+                  <option value="One-Class SVM" selected>One-Class SVM (RBF) &mdash; CMU Best (14.1% EER)</option>
+                  <option value="Scaled Manhattan">Scaled Manhattan Baseline (14.3% EER)</option>
+                  <option value="Isolation Forest">Isolation Forest (15.1% EER)</option>
+                </select>
+              </div>
+
+              <div class="progress-card">
+                <div class="progress-labels">
+                  <span class="progress-title">Template Progress</span>
+                  <span class="progress-figure nums" id="enroll-progress-text">0 / 20 Repetitions (0%)</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-thumb" id="enroll-progress-bar"></div>
+                </div>
+              </div>
+
+              <div class="action-row">
+                <button type="button" class="btn-outline" id="btn-reset-enrollment">
+                  Reset Enrollment Samples
+                </button>
+                <button type="button" class="btn-subtle" id="btn-demo-fill-enrollment" title="Pre-fill 19 baseline repetitions to test 20th final repetition">
+                  Simulate 19 Reps
+                </button>
+              </div>
+            </div>
+
+            <!-- Typing Instrument Column (data-ui) -->
+            <div class="instrument-column">
+              <div class="terminal-card" id="enroll-passphrase-card" data-ui>
+                <div class="terminal-meta">
+                  <span class="terminal-label">Passphrase Arena</span>
+                  <span class="terminal-sub">Type smoothly without rushing</span>
+                </div>
+
+                <div class="passphrase-display" id="enroll-char-slots">
+                  <span class="char-slot" data-key=".">.</span>
+                  <span class="char-slot" data-key="t">t</span>
+                  <span class="char-slot" data-key="i">i</span>
+                  <span class="char-slot" data-key="e">e</span>
+                  <span class="char-slot" data-key="5">5</span>
+                  <span class="char-slot" data-key="R">R</span>
+                  <span class="char-slot" data-key="o">o</span>
+                  <span class="char-slot" data-key="a">a</span>
+                  <span class="char-slot" data-key="n">n</span>
+                  <span class="char-slot" data-key="l">l</span>
+                  <span class="char-slot enter-key" data-key="Enter">Return</span>
+                </div>
+
+                <input type="text" class="sensor-input" id="enroll-typing-input" placeholder="Click here and type .tie5Roanl then Return" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore="true" data-form-type="other" value="">
+
+                <div class="feedback-strip" id="enroll-feedback">
+                  Strike each key naturally. Consistency of timing is evaluated, not speed.
+                </div>
+
+                <div class="cadence-timeline" id="enroll-cadence-timeline" title="Hold time per key"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enrollment Success Notification -->
+          <div id="enroll-success-banner" class="notification-card success-card" style="display: none;">
+            <div class="notification-content">
+              <h3 class="notification-title">Enrollment Successfully Completed</h3>
+              <p class="notification-details" id="enroll-success-details"></p>
+            </div>
+            <button type="button" class="btn-primary" id="btn-goto-verify">
+              Proceed to Live Verification
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           WORKSPACE 2: LIVE VERIFICATION & THRESHOLD CALIBRATION
+           ================================================================= -->
+      <section class="workspace-pane" id="tab-verify" role="tabpanel" aria-labelledby="tab-btn-verify">
+        <div class="panel-box">
+          <div class="panel-headline-row">
+            <div>
+              <h2 class="panel-heading">Verification Gateway</h2>
+              <p class="panel-description">Authenticate live against a trained profile using temporal rhythm vectors.</p>
+            </div>
+            <div class="badge-status" id="active-user-badge">Select a User Profile</div>
+          </div>
+
+          <div class="split-layout">
+            <!-- Setup & Slider -->
+            <div class="setup-column">
+              <div class="input-group">
+                <label class="input-label" for="verify-user-select">Select Enrolled Identity Profile</label>
+                <select class="select-input" id="verify-user-select">
+                  <option value="">Choose User Profile</option>
+                </select>
+              </div>
+
+              <!-- Interactive Dynamic Threshold Slider -->
+              <div class="slider-module" data-ui>
+                <div class="slider-meta">
+                  <div>
+                    <span class="input-label" style="margin-bottom: 0;">Decision Threshold Calibration</span>
+                    <span class="slider-submode" id="slider-security-mode">Mode: Balanced (EER)</span>
+                  </div>
+                  <span class="slider-val-box nums" id="slider-threshold-val">0.0000</span>
+                </div>
+                <input type="range" class="control-slider" id="threshold-slider" min="0.05" max="3.0" step="0.01" value="1.0">
+
+                <div class="tradeoff-grid">
+                  <div class="tradeoff-card">
+                    <div class="tradeoff-label">Simulated FAR</div>
+                    <div class="tradeoff-number nums" id="tradeoff-far-val">14.1%</div>
+                    <div class="tradeoff-note">False Acceptance Rate</div>
+                  </div>
+                  <div class="tradeoff-card">
+                    <div class="tradeoff-label">Simulated FRR</div>
+                    <div class="tradeoff-number nums" id="tradeoff-frr-val">14.1%</div>
+                    <div class="tradeoff-note">False Rejection Rate</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Typing Gateway (data-ui) -->
+            <div class="instrument-column">
+              <div class="terminal-card" id="verify-passphrase-card" data-ui>
+                <div class="terminal-meta">
+                  <span class="terminal-label">Verification Arena</span>
+                  <span class="terminal-sub">Enter Passphrase</span>
+                </div>
+
+                <div class="passphrase-display" id="verify-char-slots">
+                  <span class="char-slot" data-key=".">.</span>
+                  <span class="char-slot" data-key="t">t</span>
+                  <span class="char-slot" data-key="i">i</span>
+                  <span class="char-slot" data-key="e">e</span>
+                  <span class="char-slot" data-key="5">5</span>
+                  <span class="char-slot" data-key="R">R</span>
+                  <span class="char-slot" data-key="o">o</span>
+                  <span class="char-slot" data-key="a">a</span>
+                  <span class="char-slot" data-key="n">n</span>
+                  <span class="char-slot" data-key="l">l</span>
+                  <span class="char-slot enter-key" data-key="Enter">Return</span>
+                </div>
+
+                <input type="text" class="sensor-input" id="verify-typing-input" placeholder="Type .tie5Roanl then press Return" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore="true" data-form-type="other" value="">
+
+                <div class="feedback-strip" id="verify-feedback">
+                  Awaiting keystroke sequence...
+                </div>
+
+                <div class="cadence-timeline" id="verify-cadence-timeline" title="Hold time per key"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Biometric Decision Card -->
+          <div class="verdict-card" id="verification-decision-card" style="display: none;">
+            <div class="verdict-banner">
+              <span class="verdict-state" id="decision-text">ACCEPT</span>
+              <p class="verdict-explanation" id="decision-subtext">
+                Identity Verified: Keystroke cadence matches profile.
+              </p>
+            </div>
+
+            <div class="verdict-metrics-row">
+              <div class="metric-block">
+                <span class="metric-caption">Anomaly Score</span>
+                <span class="metric-data nums" id="metric-score">0.0000</span>
+              </div>
+              <div class="metric-block">
+                <span class="metric-caption">Calibrated Threshold</span>
+                <span class="metric-data nums" id="metric-threshold">0.0000</span>
+              </div>
+              <div class="metric-block">
+                <span class="metric-caption">Safety Margin</span>
+                <span class="metric-data nums" id="metric-margin">+0.0000</span>
+              </div>
+              <div class="metric-block">
+                <span class="metric-caption">Model Confidence</span>
+                <span class="metric-data nums" id="metric-confidence">95.0%</span>
+              </div>
+            </div>
+
+            <div class="deviations-wrapper" id="deviations-container">
+              <h3 class="deviations-heading">Top Temporal Feature Deviations from Baseline</h3>
+              <div class="deviations-tags" id="deviations-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           WORKSPACE 3: ADVERSARIAL IMPERSONATOR ARENA
+           ================================================================= -->
+      <section class="workspace-pane" id="tab-impersonate" role="tabpanel" aria-labelledby="tab-btn-impersonate">
+        <div class="panel-box">
+          <div class="panel-headline-row">
+            <div>
+              <h2 class="panel-heading">Adversarial Impersonation Arena</h2>
+              <p class="panel-description">Even when an attacker knows your password, their biological neuromuscular rhythm fails the decision boundary.</p>
+            </div>
+            <div class="badge-status badge-alert">Adversarial Sandbox</div>
+          </div>
+
+          <div class="split-layout">
+            <div class="setup-column">
+              <div class="input-group">
+                <label class="input-label" for="impersonate-target-user">Victim Profile to Attack</label>
+                <select class="select-input" id="impersonate-target-user">
+                  <option value="">Choose Victim Profile</option>
+                </select>
+              </div>
+
+              <div class="input-group">
+                <label class="input-label" for="impersonate-friend-name">Attacker / Friend Identifier</label>
+                <input type="text" class="text-input" id="impersonate-friend-name" placeholder="e.g. Attacker 01, Colleague Dave" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore="true" data-form-type="other" value="">
+              </div>
+
+              <div class="action-row" style="margin-top: 1rem;">
+                <button type="button" class="btn-subtle" id="btn-simulate-impostor">
+                  Simulate Impostor Rhythm Attack
+                </button>
+              </div>
+
+              <div class="rules-card">
+                <h3 class="rules-heading">Adversarial Protocol:</h3>
+                <ul class="rules-list">
+                  <li>Attacker has full knowledge of the passphrase: <code>.tie5Roanl</code>.</li>
+                  <li>Attacker attempts to type naturally at their normal cadence.</li>
+                  <li>One-Class hyperplane evaluates multi-dimensional motor deviation.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="instrument-column">
+              <div class="terminal-card" id="impersonate-passphrase-card" data-ui>
+                <div class="terminal-meta">
+                  <span class="terminal-label">Impersonation Arena</span>
+                  <span class="terminal-sub">Passphrase: .tie5Roanl</span>
+                </div>
+
+                <div class="passphrase-display" id="impersonate-char-slots">
+                  <span class="char-slot" data-key=".">.</span>
+                  <span class="char-slot" data-key="t">t</span>
+                  <span class="char-slot" data-key="i">i</span>
+                  <span class="char-slot" data-key="e">e</span>
+                  <span class="char-slot" data-key="5">5</span>
+                  <span class="char-slot" data-key="R">R</span>
+                  <span class="char-slot" data-key="o">o</span>
+                  <span class="char-slot" data-key="a">a</span>
+                  <span class="char-slot" data-key="n">n</span>
+                  <span class="char-slot" data-key="l">l</span>
+                  <span class="char-slot enter-key" data-key="Enter">Return</span>
+                </div>
+
+                <input type="text" class="sensor-input" id="impersonate-typing-input" placeholder="Hand keyboard to attacker, type then Return" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore="true" data-form-type="other" value="">
+
+                <div class="feedback-strip" id="impersonate-feedback">
+                  Awaiting adversarial attempt...
+                </div>
+
+                <div class="cadence-timeline" id="impersonate-cadence-timeline"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Impersonation Verdict -->
+          <div class="verdict-card" id="impersonate-decision-card" style="display: none;">
+            <div class="verdict-banner">
+              <span class="verdict-state" id="impersonate-decision-text">BLOCKED</span>
+              <p class="verdict-explanation" id="impersonate-decision-subtext">
+                Attack Repelled! Impostor cadence failed verification against genuine profile.
+              </p>
+            </div>
+            <div class="verdict-metrics-row">
+              <div class="metric-block">
+                <span class="metric-caption">Attacker Score</span>
+                <span class="metric-data nums" id="impersonate-score">0.0000</span>
+              </div>
+              <div class="metric-block">
+                <span class="metric-caption">Victim Threshold</span>
+                <span class="metric-data nums" id="impersonate-threshold">0.0000</span>
+              </div>
+              <div class="metric-block">
+                <span class="metric-caption">Biometric Outcome</span>
+                <span class="metric-data nums" id="impersonate-outcome">REJECTED</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Adversarial Log Table -->
+          <div class="table-container">
+            <h3 class="table-heading">Adversarial Security Audit Log</h3>
+            <table class="data-table" id="impersonation-log-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Target Identity</th>
+                  <th>Attacker Alias</th>
+                  <th>Score</th>
+                  <th>Threshold</th>
+                  <th>Defense Result</th>
+                </tr>
+              </thead>
+              <tbody id="impersonation-log-tbody">
+                <tr>
+                  <td colspan="6" class="table-empty">No adversarial attempts recorded yet. Challenge a colleague or simulate an attack above.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           WORKSPACE 4: ML BENCHMARK & MODEL INTELLIGENCE
+           ================================================================= -->
+      <section class="workspace-pane" id="tab-benchmark" role="tabpanel" aria-labelledby="tab-btn-benchmark">
+        <div class="panel-box">
+          <div class="panel-headline-row">
+            <div>
+              <h2 class="panel-heading">CMU Benchmark &amp; Model Intelligence</h2>
+              <p class="panel-description">Empirical evaluation of 51 subjects typing <code>.tie5Roanl</code> 400 times under the Killourhy &amp; Maxion (2009) protocol.</p>
+            </div>
+            <div class="badge-status">51 Subjects Evaluated</div>
+          </div>
+
+          <div class="table-container">
+            <h3 class="table-heading">Offline Detector Comparison (CMU Dataset)</h3>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Model / Detector</th>
+                  <th>Mean EER (%)</th>
+                  <th>Std EER (%)</th>
+                  <th>Mean AUC</th>
+                  <th>Mean FAR (%)</th>
+                  <th>Mean FRR (%)</th>
+                  <th>Benchmark Rank</th>
+                </tr>
+              </thead>
+              <tbody id="benchmark-table-body">
+                <tr>
+                  <td><strong>One-Class SVM (RBF)</strong></td>
+                  <td class="nums">14.12%</td>
+                  <td class="nums">&plusmn; 9.54%</td>
+                  <td class="nums">0.9113</td>
+                  <td class="nums">14.12%</td>
+                  <td class="nums">14.12%</td>
+                  <td><span class="tag-rank tag-best">Best Model</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Scaled Manhattan Baseline</strong></td>
+                  <td class="nums">14.34%</td>
+                  <td class="nums">&plusmn; 10.21%</td>
+                  <td class="nums">0.9118</td>
+                  <td class="nums">14.33%</td>
+                  <td class="nums">14.34%</td>
+                  <td><span class="tag-rank tag-runner">Runner Up</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Isolation Forest</strong></td>
+                  <td class="nums">15.15%</td>
+                  <td class="nums">&plusmn; 9.97%</td>
+                  <td class="nums">0.9097</td>
+                  <td class="nums">15.15%</td>
+                  <td class="nums">15.15%</td>
+                  <td><span class="tag-rank">Evaluated</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Visual Plots Section with Real Artifacts -->
+          <div class="artifacts-gallery">
+            <h3 class="table-heading">Generated Evaluation Artifacts</h3>
+            <div class="artifacts-grid">
+              <figure class="artifact-figure">
+                <img src="/results/roc_curves.png" alt="ROC Curves Comparison for One-Class SVM, Scaled Manhattan, and Isolation Forest" class="artifact-image" onerror="this.parentElement.style.display='none'">
+                <figcaption class="artifact-caption">Receiver Operating Characteristic Comparison (Mean AUC: 0.911)</figcaption>
+              </figure>
+              <figure class="artifact-figure">
+                <img src="/results/det_curves.png" alt="Detection Error Tradeoff Curves on Logarithmic Scale" class="artifact-image" onerror="this.parentElement.style.display='none'">
+                <figcaption class="artifact-caption">Detection Error Tradeoff (Logarithmic FRR vs FAR)</figcaption>
+              </figure>
+            </div>
+
+            <figure class="artifact-figure full-figure" style="margin-top: 1.5rem;">
+              <img src="/results/model_comparison.png" alt="Model Comparison Mean EER with Error Bars" class="artifact-image" onerror="this.parentElement.style.display='none'">
+              <figcaption class="artifact-caption">Mean Equal Error Rate Comparison with Standard Deviation Across All 51 Subjects</figcaption>
+            </figure>
+          </div>
+
+          <!-- Protocol & Mathematics -->
+          <div class="methodology-card">
+            <h3 class="methodology-heading">Biometric Methodology &amp; Protocol</h3>
+            <div class="methodology-grid">
+              <div>
+                <h4 class="methodology-sub">31 Temporal Latency Features</h4>
+                <p class="methodology-text">
+                  Extracted from key events on the 11-key passphrase <code>.tie5Roanl[Return]</code>:
+                </p>
+                <ul class="methodology-list">
+                  <li><code>11 Hold Times (H.k):</code> Duration between keydown and keyup for each key.</li>
+                  <li><code>10 Down-Down Times (DD.k1.k2):</code> Flight time between consecutive key presses.</li>
+                  <li><code>10 Up-Down Times (UD.k1.k2):</code> Interval between key release and next key press.</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="methodology-sub">Killourhy &amp; Maxion (2009) Experimental Protocol</h4>
+                <p class="methodology-text">
+                  Ensures zero test leakage and authentic zero-effort impostor evaluations:
+                </p>
+                <ul class="methodology-list">
+                  <li><code>Training Set:</code> First 200 repetitions of genuine user ($rep \le 200$).</li>
+                  <li><code>Genuine Test Set:</code> Remaining 200 repetitions ($rep &gt; 200$).</li>
+                  <li><code>Impostor Test Set:</code> 5 test repetitions from each of the other 50 subjects ($50 \times 5 = 250$ impostor attempts).</li>
+                  <li><code>EER Definition:</code> Operating threshold where False Accept Rate equals False Reject Rate ($FAR = FRR$).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Clean Engineering Footer (Tiles) -->
+  <footer class="site-footer">
+    <div class="footer-tiles">
+      <div class="footer-tile footer-tile-brand">
+        <span class="footer-brand">KEYRO</span>
+        <p class="footer-tagline">Keystroke Dynamics Behavioral Biometrics &amp; Anomaly Detection</p>
+        <span class="footer-copy">&copy; 2026 Keyro Biometric Security</span>
+      </div>
+      <div class="footer-tile">
+        <span class="tile-category">System Architecture</span>
+        <p class="footer-detail">FastAPI Server &bull; scikit-learn &bull; One-Class SVM &bull; <code>performance.now()</code></p>
+      </div>
+      <div class="footer-tile">
+        <span class="tile-category">CMU Benchmark Dataset</span>
+        <p class="footer-detail">DSL-StrongPasswordData (20,400 samples, 51 subjects)</p>
+      </div>
+      <div class="footer-tile">
+        <span class="tile-category">Inference Engine Status</span>
+        <p class="footer-detail">Real-Time Microsecond Cadence Inference Active</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- High-Precision Scripts -->
+  <script src="/static/js/keystroke.js?v=5"></script>
+  <script src="/static/js/app.js?v=5"></script>
+</body>
+</html>

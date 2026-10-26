@@ -59,23 +59,29 @@ Keyro derives 31 timing features from the sequence of key events:
 | Down–down flight times | 10 | Time between keydown events for adjacent keys |
 | Up–down flight times | 10 | Time from releasing one key to pressing the next |
 
-For a key \(k\), its hold time is:
+For a key `k`, its hold time is:
 
-\[
-H_k = t_{\mathrm{up}}(k) - t_{\mathrm{down}}(k)
-\]
+$$
+H_k = t_{\text{up}}(k) - t_{\text{down}}(k)
+$$
 
-For adjacent keys \(k_1\) and \(k_2\):
+For adjacent keys `k_1` and `k_2`:
 
-\[
-DD_{k_1,k_2} = t_{\mathrm{down}}(k_2) - t_{\mathrm{down}}(k_1)
-\]
+$$
+DD_{k_1,k_2} = t_{\text{down}}(k_2) - t_{\text{down}}(k_1)
+$$
 
-\[
-UD_{k_1,k_2} = t_{\mathrm{down}}(k_2) - t_{\mathrm{up}}(k_1)
-\]
+$$
+UD_{k_1,k_2} = t_{\text{down}}(k_2) - t_{\text{up}}(k_1)
+$$
 
-When the events are captured consistently, \(DD_{k_1,k_2}=H_{k_1}+UD_{k_1,k_2}\). Browser event timing is not a trusted hardware measurement: operating-system scheduling, browser behavior, keyboard hardware, and input injection can affect the values.
+When the events are captured consistently:
+
+$$
+DD_{k_1,k_2} = H_{k_1} + UD_{k_1,k_2}
+$$
+
+Browser event timing is not a trusted hardware measurement: operating-system scheduling, browser behavior, keyboard hardware, and input injection can affect the values.
 
 ## Models and evaluation
 
